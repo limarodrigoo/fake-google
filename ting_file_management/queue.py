@@ -1,15 +1,25 @@
 class Queue:
     def __init__(self):
-        """Inicialize sua estrutura aqui"""
+        self._data = list()
 
     def __len__(self):
-        """Aqui irá sua implementação"""
+        return len(self._data)
 
     def enqueue(self, value):
-        """Aqui irá sua implementação"""
+        return self._data.append(value)
 
     def dequeue(self):
-        """Aqui irá sua implementação"""
+        if self._data.__len__() == 0:
+            raise IndexError("The queue is empty")
+
+        return self._data.pop(0)
 
     def search(self, index):
-        """Aqui irá sua implementação"""
+        list_length = self.__len__()
+        if index < 0:
+            raise IndexError("Index must be equal or greater then 0")
+
+        if index > list_length - 1:
+            raise IndexError("Index higher then list length")
+
+        return self._data[index]
